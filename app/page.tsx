@@ -91,7 +91,7 @@ export default function LandingPage() {
 
       <section className="splitBand">
         <div className="showcasePanel">
-          <img src="/product-snapshot.png" alt="" width={460} height={180} />
+          <img src="/hero-stock.jpg" alt="" width={1280} height={853} />
         </div>
         <div className="launchList">
           <p className="eyebrow">Live MVP</p>

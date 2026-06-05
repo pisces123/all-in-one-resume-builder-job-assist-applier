@@ -8,6 +8,7 @@ import {
   Sparkles
 } from "lucide-react";
 import Link from "next/link";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
   { href: "/", label: "Home", icon: Sparkles },
@@ -38,15 +39,18 @@ export function SiteNav() {
         ))}
       </nav>
 
-      <a
-        className="navRepo"
-        href="https://github.com/pisces123/all-in-one-resume-builder-job-assist-applier"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <Github size={16} />
-        <span>GitHub</span>
-      </a>
+      <div className="navActions">
+        <ThemeToggle />
+        <a
+          className="navRepo"
+          href="https://github.com/pisces123/all-in-one-resume-builder-job-assist-applier"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Github size={16} />
+          <span>GitHub</span>
+        </a>
+      </div>
     </header>
   );
 }

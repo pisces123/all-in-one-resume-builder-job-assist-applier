@@ -278,11 +278,11 @@ export function WorkspaceDashboard() {
           </div>
         </div>
         <img
-          src="/product-snapshot.png"
+          src="/hero-stock.jpg"
           alt=""
           className="productPreview"
-          width={460}
-          height={180}
+          width={1280}
+          height={853}
         />
       </section>
 

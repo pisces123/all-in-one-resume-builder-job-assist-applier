@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: "All in One Resume Builder and Job Assist Applier",
     description:
       "Build resumes, save jobs, tailor applications, export documents, and track job-search progress.",
-    images: ["/product-snapshot.png"]
+    images: ["/hero-stock.jpg"]
   }
 };
 

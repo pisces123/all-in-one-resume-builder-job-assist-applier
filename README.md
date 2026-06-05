@@ -18,6 +18,10 @@ Live app: https://all-in-one-resume-builder-job-assis.vercel.app
 - Supabase schema with row-level security policies
 - Server-side DeepSeek-compatible AI adapter with demo fallback
 
+## Visual Assets
+
+The landing-page workspace photo is from Pixabay: https://pixabay.com/photos/laptop-desk-setup-workspace-7093440/
+
 ## Local Development
 
 ```bash
