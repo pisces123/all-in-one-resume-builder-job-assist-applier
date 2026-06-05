@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_APP_URL ||
-      "https://all-in-one-resume-builder-job-assist-applier.vercel.app"
+      "https://all-in-one-resume-builder-job-assis.vercel.app"
   ),
   title: "All in One Resume Builder and Job Assist Applier",
   description:

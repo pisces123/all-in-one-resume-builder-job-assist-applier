@@ -1,4 +1,4 @@
-const DEFAULT_APP_URL = "http://localhost:3000";
+const DEFAULT_APP_URL = "https://all-in-one-resume-builder-job-assis.vercel.app";
 
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({

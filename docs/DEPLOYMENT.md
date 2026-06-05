@@ -2,6 +2,12 @@
 
 The MVP is designed to deploy immediately on Vercel. Missing Supabase or DeepSeek credentials keep the app in demo mode instead of blocking the public shell.
 
+Current production URL:
+
+```text
+https://all-in-one-resume-builder-job-assis.vercel.app
+```
+
 ## Vercel
 
 ```bash

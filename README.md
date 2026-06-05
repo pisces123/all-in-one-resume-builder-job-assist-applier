@@ -4,6 +4,8 @@ A free, open-source job-search workspace for building resumes, checking ATS read
 
 This first release ships as a live MVP shell. It works locally in demo mode right away and unlocks connected account storage plus AI drafting when Supabase and DeepSeek environment variables are configured.
 
+Live app: https://all-in-one-resume-builder-job-assis.vercel.app
+
 ## Features
 
 - Guided resume builder with text import
@@ -46,7 +48,7 @@ The unpacked Chrome extension lives in `extension/`.
 1. Open `chrome://extensions`.
 2. Enable Developer Mode.
 3. Load unpacked and select the `extension/` folder.
-4. Open extension options and set the deployed app URL.
+4. Open extension options and confirm the app URL.
 
 ## Verification
 

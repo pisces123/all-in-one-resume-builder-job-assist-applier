@@ -3,7 +3,9 @@ const status = document.querySelector("#status");
 const save = document.querySelector("#save");
 
 chrome.storage.sync.get(["appUrl"]).then((settings) => {
-  input.value = settings.appUrl || "http://localhost:3000";
+  input.value =
+    settings.appUrl ||
+    "https://all-in-one-resume-builder-job-assis.vercel.app";
 });
 
 save.addEventListener("click", async () => {
