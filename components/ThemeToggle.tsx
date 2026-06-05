@@ -15,18 +15,18 @@ function applyTheme(preference: ThemePreference) {
 }
 
 export function ThemeToggle() {
-  const [preference, setPreference] = useState<ThemePreference>("system");
+  const [preference, setPreference] = useState<ThemePreference>("light");
 
   useEffect(() => {
     const stored = window.localStorage.getItem(themeKey) as ThemePreference | null;
     const initial: ThemePreference =
-      stored === "light" || stored === "dark" || stored === "system" ? stored : "system";
+      stored === "light" || stored === "dark" || stored === "system" ? stored : "light";
     setPreference(initial);
     applyTheme(initial);
 
     const media = window.matchMedia("(prefers-color-scheme: dark)");
     const syncSystem = () => {
-      const current = (window.localStorage.getItem(themeKey) as ThemePreference | null) || "system";
+      const current = (window.localStorage.getItem(themeKey) as ThemePreference | null) || "light";
       if (current === "system") applyTheme("system");
     };
     media.addEventListener("change", syncSystem);

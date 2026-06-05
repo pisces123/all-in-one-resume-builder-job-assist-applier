@@ -296,7 +296,7 @@ a {
 
 .landingHero {
   position: relative;
-  min-height: clamp(680px, calc(100svh - 56px), 860px);
+  min-height: clamp(640px, calc(100svh - 56px), 800px);
   overflow: hidden;
   display: grid;
   align-items: start;
@@ -315,16 +315,24 @@ a {
 
 .heroImageLayer {
   z-index: -2;
+  opacity: 0.22;
   background-image: url("/hero-stock.jpg");
-  background-size: cover;
-  background-position: center 58%;
+  background-repeat: no-repeat;
+  background-size: min(1120px, 96vw) auto;
+  background-position: center bottom;
 }
 
 .heroShade {
   z-index: -1;
   background:
-    linear-gradient(180deg, rgba(245, 245, 247, 0.98) 0%, rgba(245, 245, 247, 0.9) 38%, rgba(245, 245, 247, 0.2) 68%, rgba(245, 245, 247, 0.72) 100%),
-    linear-gradient(90deg, rgba(245, 245, 247, 0.92), rgba(245, 245, 247, 0.46) 52%, rgba(245, 245, 247, 0.72));
+    linear-gradient(180deg, rgba(245, 245, 247, 1) 0%, rgba(245, 245, 247, 0.98) 42%, rgba(245, 245, 247, 0.76) 70%, rgba(245, 245, 247, 0.96) 100%),
+    linear-gradient(90deg, rgba(245, 245, 247, 0.98), rgba(245, 245, 247, 0.74) 56%, rgba(245, 245, 247, 0.92));
+}
+
+:root[data-theme="dark"] .heroImageLayer {
+  opacity: 1;
+  background-size: cover;
+  background-position: center 58%;
 }
 
 :root[data-theme="dark"] .heroShade {
@@ -1233,18 +1241,24 @@ code {
   }
 
   .landingHero {
-    min-height: 680px;
+    min-height: 620px;
   }
 
   .heroImageLayer {
+    background-size: min(720px, 150vw) auto;
+    background-position: center bottom;
+  }
+
+  :root[data-theme="dark"] .heroImageLayer {
+    opacity: 1;
     background-size: cover;
     background-position: center bottom;
   }
 
   .heroShade {
     background:
-      linear-gradient(180deg, rgba(245, 245, 247, 1) 0%, rgba(245, 245, 247, 0.96) 54%, rgba(245, 245, 247, 0.5) 74%, rgba(245, 245, 247, 0.86) 100%),
-      linear-gradient(90deg, rgba(245, 245, 247, 0.98), rgba(245, 245, 247, 0.66));
+      linear-gradient(180deg, rgba(245, 245, 247, 1) 0%, rgba(245, 245, 247, 0.98) 56%, rgba(245, 245, 247, 0.84) 78%, rgba(245, 245, 247, 0.98) 100%),
+      linear-gradient(90deg, rgba(245, 245, 247, 1), rgba(245, 245, 247, 0.82));
   }
 
   :root[data-theme="dark"] .heroShade {
