@@ -1,0 +1,544 @@
+:root {
+  color-scheme: light;
+  --bg: #f6f7f4;
+  --surface: #ffffff;
+  --surface-2: #eef3ef;
+  --ink: #1c2520;
+  --muted: #64716a;
+  --line: #dce3dd;
+  --teal: #177e73;
+  --teal-dark: #0f5d56;
+  --amber: #a76a1f;
+  --amber-bg: #fff2da;
+  --green-bg: #dff4e7;
+  --green: #287a44;
+  --red-bg: #ffe5df;
+  --red: #b64231;
+  --blue-bg: #e6efff;
+  --blue: #325fa8;
+  --shadow: 0 18px 50px rgba(20, 34, 28, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  letter-spacing: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.appShell {
+  width: min(1520px, calc(100vw - 28px));
+  margin: 0 auto;
+  padding: 22px 0 40px;
+}
+
+.topBar,
+.commandBand,
+.workspaceGrid,
+.detailsGrid,
+.extensionBand {
+  margin-bottom: 16px;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.topBar h1 {
+  margin: 0;
+  font-size: clamp(1.55rem, 3vw, 2.55rem);
+  line-height: 1.05;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.statusCluster,
+.extensionActions,
+.buttonRow,
+.importRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 10px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 0.86rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.pill.green {
+  background: var(--green-bg);
+  color: var(--green);
+}
+
+.pill.amber {
+  background: var(--amber-bg);
+  color: var(--amber);
+}
+
+.pill.neutral {
+  background: var(--surface-2);
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.commandBand {
+  display: grid;
+  grid-template-columns: 1fr minmax(260px, 460px);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.metrics {
+  min-height: 180px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.metrics div,
+.panel,
+.extensionBand {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.metrics div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  padding: 18px;
+}
+
+.metrics span {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.metrics p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.productPreview {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.workspaceGrid {
+  display: grid;
+  grid-template-columns: minmax(320px, 1.15fr) minmax(300px, 0.85fr) minmax(300px, 0.85fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.9fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.panel {
+  min-width: 0;
+  padding: 16px;
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.panelHeader h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.wide {
+  grid-column: 1 / -1;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfcfa;
+  color: var(--ink);
+  outline: none;
+}
+
+input,
+select {
+  min-height: 42px;
+  padding: 9px 10px;
+}
+
+textarea {
+  min-height: 98px;
+  padding: 10px;
+  resize: vertical;
+  line-height: 1.45;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(23, 126, 115, 0.14);
+}
+
+.importBox {
+  min-height: 84px;
+  margin: 8px 0 12px;
+}
+
+.primaryButton,
+.secondaryButton,
+.ghostButton,
+.fileButton {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 9px 12px;
+  font-size: 0.9rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.primaryButton {
+  width: 100%;
+  margin-top: 12px;
+  background: var(--teal);
+  color: #fff;
+}
+
+.secondaryButton {
+  background: var(--ink);
+  color: #fff;
+}
+
+.ghostButton,
+.fileButton {
+  background: var(--surface-2);
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.fileButton input {
+  display: none;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.jobList {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.jobItem {
+  display: grid;
+  gap: 3px;
+  width: 100%;
+  min-height: 62px;
+  padding: 11px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfcfa;
+  color: var(--ink);
+  text-align: left;
+}
+
+.jobItem.selected {
+  border-color: var(--teal);
+  background: #edf8f5;
+}
+
+.jobItem span {
+  overflow-wrap: anywhere;
+  font-weight: 900;
+}
+
+.jobItem small {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.selectedJob {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.selectedJob h3,
+.selectedJob p {
+  margin: 0;
+}
+
+.selectedJob select {
+  width: min(150px, 100%);
+}
+
+.scorePanel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 102px;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.scorePanel span {
+  font-size: 2.2rem;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.scorePanel p {
+  margin: 6px 0 0;
+  font-weight: 800;
+}
+
+.scoreGood {
+  background: var(--green-bg);
+  color: var(--green);
+}
+
+.scoreOkay {
+  background: var(--amber-bg);
+  color: var(--amber);
+}
+
+.scoreNeedsWork {
+  background: var(--red-bg);
+  color: var(--red);
+}
+
+.reportList {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.reportRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.reportRow p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.reportRow span {
+  font-weight: 950;
+}
+
+.draftBlock {
+  display: grid;
+  gap: 10px;
+}
+
+.draftBlock h3 {
+  margin: 4px 0 0;
+  font-size: 0.96rem;
+}
+
+.draftBlock p,
+.draftBlock li,
+.tipsList li,
+.emptyState,
+.extensionBand p {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.draftBlock ul,
+.tipsList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.draftBlock li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.draftBlock pre {
+  max-height: 430px;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0;
+  padding: 12px;
+  background: #fbfcfa;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  line-height: 1.5;
+}
+
+.tipsList {
+  display: grid;
+  gap: 10px;
+}
+
+.tipsList li {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 8px;
+  align-items: start;
+}
+
+.tipsList svg {
+  margin-top: 3px;
+  color: var(--teal);
+}
+
+.extensionBand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+}
+
+code {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 2px 5px;
+}
+
+@media (max-width: 1180px) {
+  .workspaceGrid,
+  .detailsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .actionPanel,
+  .detailsGrid .panel:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 760px) {
+  .appShell {
+    width: min(100vw - 20px, 720px);
+    padding-top: 14px;
+  }
+
+  .topBar,
+  .extensionBand,
+  .selectedJob {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .commandBand,
+  .workspaceGrid,
+  .detailsGrid,
+  .metrics,
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .productPreview {
+    height: 150px;
+  }
+
+  .statusCluster,
+  .extensionActions,
+  .buttonRow {
+    align-items: stretch;
+  }
+
+  .buttonRow > button,
+  .statusCluster > span,
+  .extensionActions > span {
+    width: 100%;
+  }
+}

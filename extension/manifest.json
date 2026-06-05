@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "All in One Resume Job Saver",
+  "short_name": "Job Saver",
+  "version": "0.1.0",
+  "description": "Save job links and visible job-page details to the resume builder workspace.",
+  "permissions": ["contextMenus", "activeTab", "scripting", "storage"],
+  "host_permissions": ["http://localhost:3000/*", "https://*.vercel.app/*"],
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "options_page": "options.html",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "Job Saver",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png"
+    }
+  }
+}

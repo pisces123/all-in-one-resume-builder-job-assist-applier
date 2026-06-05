@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Job Saver Settings</title>
+    <style>
+      body {
+        width: min(100vw - 24px, 520px);
+        margin: 24px auto;
+        color: #1c2520;
+        background: #f6f7f4;
+        font-family:
+          Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      main {
+        display: grid;
+        gap: 14px;
+        padding: 18px;
+        background: #fff;
+        border: 1px solid #dce3dd;
+        border-radius: 8px;
+      }
+      h1 {
+        margin: 0;
+        font-size: 1.2rem;
+      }
+      label {
+        display: grid;
+        gap: 7px;
+        color: #64716a;
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+      input {
+        min-height: 42px;
+        border: 1px solid #dce3dd;
+        border-radius: 8px;
+        padding: 9px 10px;
+        font: inherit;
+      }
+      button {
+        min-height: 40px;
+        border: 0;
+        border-radius: 8px;
+        background: #177e73;
+        color: #fff;
+        font: inherit;
+        font-weight: 900;
+      }
+      p {
+        margin: 0;
+        color: #64716a;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Job Saver Settings</h1>
+      <label>
+        App URL
+        <input id="appUrl" placeholder="http://localhost:3000" />
+      </label>
+      <button id="save">Save</button>
+      <p id="status"></p>
+    </main>
+    <script src="options.js"></script>
+  </body>
+</html>
