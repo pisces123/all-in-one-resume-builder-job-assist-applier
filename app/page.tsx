@@ -9,6 +9,7 @@ import {
   WandSparkles
 } from "lucide-react";
 import Link from "next/link";
+import { InteractiveHero } from "@/components/InteractiveHero";
 
 const flow = [
   {
@@ -38,8 +39,8 @@ const stats = [
 export default function LandingPage() {
   return (
     <main className="landingShell">
-      <section className="landingHero">
-        <div className="heroImageLayer" />
+      <InteractiveHero>
+        <div className="heroGradientLayer" aria-hidden="true" />
         <div className="heroShade" />
         <div className="heroCopy">
           <p className="heroKicker">
@@ -62,7 +63,7 @@ export default function LandingPage() {
             </Link>
           </div>
         </div>
-      </section>
+      </InteractiveHero>
 
       <section className="landingMetrics" aria-label="Product highlights">
         {stats.map(([value, label]) => (

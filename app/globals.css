@@ -296,6 +296,15 @@ a {
 
 .landingHero {
   position: relative;
+  --hero-x: 50%;
+  --hero-y: 46%;
+  --hero-shift-x: 0px;
+  --hero-shift-y: 0px;
+  --hero-counter-shift-x: 0px;
+  --hero-counter-shift-y: 0px;
+  --hero-saturation: 1.05;
+  --hero-sheen-opacity: 0.66;
+  --hero-film-opacity: 0.42;
   min-height: clamp(640px, calc(100svh - 56px), 800px);
   overflow: hidden;
   display: grid;
@@ -307,38 +316,117 @@ a {
   isolation: isolate;
 }
 
-.heroImageLayer,
+.heroGradientLayer,
 .heroShade {
   position: absolute;
   inset: 0;
 }
 
-.heroImageLayer {
+.heroGradientLayer {
   z-index: -2;
-  opacity: 0.22;
-  background-image: url("/hero-stock.jpg");
-  background-repeat: no-repeat;
-  background-size: min(1120px, 96vw) auto;
-  background-position: center bottom;
+  overflow: hidden;
+  background:
+    conic-gradient(from 150deg at var(--hero-x) var(--hero-y), rgba(0, 113, 227, 0.28), rgba(15, 162, 148, 0.24), rgba(255, 196, 87, 0.22), rgba(255, 255, 255, 0.1), rgba(0, 113, 227, 0.28)),
+    linear-gradient(135deg, #fbfbfd 0%, #e7f4ff 30%, #ebfbf2 60%, #fff0cf 100%);
+  background-position:
+    calc(50% + var(--hero-shift-x)) calc(50% + var(--hero-shift-y)),
+    center;
+  background-size:
+    150% 150%,
+    100% 100%;
+  filter: saturate(var(--hero-saturation)) contrast(1.02);
+  transform: translate3d(0, 0, 0) scale(1.02);
+  transition:
+    background-position 180ms ease-out,
+    filter 220ms ease-out;
+  animation: heroGradientDrift 16s ease-in-out infinite alternate;
+}
+
+.heroGradientLayer::before,
+.heroGradientLayer::after {
+  position: absolute;
+  inset: -18%;
+  content: "";
+  pointer-events: none;
+}
+
+.heroGradientLayer::before {
+  background:
+    linear-gradient(115deg, transparent 8%, rgba(255, 255, 255, 0.42) 40%, transparent 68%),
+    linear-gradient(205deg, transparent 24%, rgba(0, 113, 227, 0.18) 48%, rgba(19, 115, 51, 0.1) 62%, transparent 82%);
+  opacity: var(--hero-sheen-opacity);
+  transform: translate3d(var(--hero-shift-x), var(--hero-shift-y), 0);
+  transition:
+    opacity 220ms ease-out,
+    transform 180ms ease-out;
+  animation: heroLightSweep 20s ease-in-out infinite alternate;
+}
+
+.heroGradientLayer::after {
+  background:
+    linear-gradient(100deg, transparent 20%, rgba(255, 255, 255, 0.22) 48%, transparent 76%),
+    linear-gradient(10deg, rgba(255, 255, 255, 0.16), transparent 44%);
+  opacity: var(--hero-film-opacity);
+  mix-blend-mode: soft-light;
+  transform: translate3d(var(--hero-counter-shift-x), var(--hero-counter-shift-y), 0);
+  transition:
+    opacity 220ms ease-out,
+    transform 180ms ease-out;
 }
 
 .heroShade {
   z-index: -1;
   background:
-    linear-gradient(180deg, rgba(245, 245, 247, 1) 0%, rgba(245, 245, 247, 0.98) 42%, rgba(245, 245, 247, 0.76) 70%, rgba(245, 245, 247, 0.96) 100%),
-    linear-gradient(90deg, rgba(245, 245, 247, 0.98), rgba(245, 245, 247, 0.74) 56%, rgba(245, 245, 247, 0.92));
+    linear-gradient(180deg, rgba(245, 245, 247, 0.68) 0%, rgba(245, 245, 247, 0.42) 42%, rgba(245, 245, 247, 0.28) 68%, rgba(245, 245, 247, 0.78) 100%),
+    linear-gradient(90deg, rgba(245, 245, 247, 0.78), rgba(245, 245, 247, 0.34) 56%, rgba(245, 245, 247, 0.68));
 }
 
-:root[data-theme="dark"] .heroImageLayer {
-  opacity: 1;
-  background-size: cover;
-  background-position: center 58%;
+:root[data-theme="dark"] .heroGradientLayer {
+  background:
+    conic-gradient(from 150deg at var(--hero-x) var(--hero-y), rgba(41, 151, 255, 0.34), rgba(31, 219, 186, 0.24), rgba(255, 196, 87, 0.14), rgba(0, 0, 0, 0.08), rgba(41, 151, 255, 0.34)),
+    linear-gradient(135deg, #020408 0%, #07111d 36%, #0b1b19 62%, #15120a 100%);
+}
+
+:root[data-theme="dark"] .heroGradientLayer::before {
+  background:
+    linear-gradient(115deg, transparent 10%, rgba(255, 255, 255, 0.16) 42%, transparent 70%),
+    linear-gradient(205deg, transparent 24%, rgba(41, 151, 255, 0.26) 48%, rgba(98, 209, 132, 0.14) 62%, transparent 82%);
+  opacity: var(--hero-sheen-opacity);
+}
+
+:root[data-theme="dark"] .heroGradientLayer::after {
+  background:
+    linear-gradient(100deg, transparent 20%, rgba(41, 151, 255, 0.18) 48%, transparent 76%),
+    linear-gradient(10deg, rgba(255, 196, 87, 0.08), transparent 44%);
+  opacity: var(--hero-film-opacity);
 }
 
 :root[data-theme="dark"] .heroShade {
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.96) 0%, rgba(0, 0, 0, 0.86) 38%, rgba(0, 0, 0, 0.32) 70%, rgba(0, 0, 0, 0.78) 100%),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.5) 54%, rgba(0, 0, 0, 0.72));
+    linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.68) 38%, rgba(0, 0, 0, 0.22) 70%, rgba(0, 0, 0, 0.78) 100%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.34) 54%, rgba(0, 0, 0, 0.68));
+}
+
+@keyframes heroGradientDrift {
+  0% {
+    background-position:
+      calc(42% + var(--hero-shift-x)) calc(38% + var(--hero-shift-y)),
+      center;
+  }
+  100% {
+    background-position:
+      calc(58% + var(--hero-shift-x)) calc(54% + var(--hero-shift-y)),
+      center;
+  }
+}
+
+@keyframes heroLightSweep {
+  0% {
+    transform: translate3d(calc(var(--hero-shift-x) - 18px), calc(var(--hero-shift-y) - 10px), 0) rotate(-1deg);
+  }
+  100% {
+    transform: translate3d(calc(var(--hero-shift-x) + 18px), calc(var(--hero-shift-y) + 10px), 0) rotate(1deg);
+  }
 }
 
 .heroCopy {
@@ -1244,21 +1332,16 @@ code {
     min-height: 620px;
   }
 
-  .heroImageLayer {
-    background-size: min(720px, 150vw) auto;
-    background-position: center bottom;
-  }
-
-  :root[data-theme="dark"] .heroImageLayer {
-    opacity: 1;
-    background-size: cover;
-    background-position: center bottom;
+  .heroGradientLayer {
+    background-size:
+      180% 180%,
+      100% 100%;
   }
 
   .heroShade {
     background:
-      linear-gradient(180deg, rgba(245, 245, 247, 1) 0%, rgba(245, 245, 247, 0.98) 56%, rgba(245, 245, 247, 0.84) 78%, rgba(245, 245, 247, 0.98) 100%),
-      linear-gradient(90deg, rgba(245, 245, 247, 1), rgba(245, 245, 247, 0.82));
+      linear-gradient(180deg, rgba(245, 245, 247, 0.9) 0%, rgba(245, 245, 247, 0.72) 56%, rgba(245, 245, 247, 0.56) 78%, rgba(245, 245, 247, 0.9) 100%),
+      linear-gradient(90deg, rgba(245, 245, 247, 0.92), rgba(245, 245, 247, 0.62));
   }
 
   :root[data-theme="dark"] .heroShade {
