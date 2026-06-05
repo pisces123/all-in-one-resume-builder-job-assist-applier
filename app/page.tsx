@@ -29,10 +29,10 @@ const flow = [
 ];
 
 const stats = [
-  ["7", "Tracker stages"],
-  ["PDF", "Exports"],
-  ["DOCX", "Editable files"],
-  ["MV3", "Chrome saver"]
+  ["7", "pipeline stages"],
+  ["PDF", "one-click export"],
+  ["DOCX", "editable copies"],
+  ["MV3", "Chrome capture"]
 ];
 
 export default function LandingPage() {
@@ -44,12 +44,12 @@ export default function LandingPage() {
         <div className="heroCopy">
           <p className="heroKicker">
             <ShieldCheck size={18} />
-            Free open-source career workspace
+            All in One Resume Builder
           </p>
-          <h1>All in One Resume Builder and Job Assist Applier</h1>
+          <h1>Apply with a sharper resume.</h1>
           <p>
-            A polished command center for resumes, saved jobs, ATS readiness,
-            cover letters, recruiter moves, and interview prep.
+            Build a clean base resume, save every job, tailor your application,
+            and keep the whole search moving from one focused workspace.
           </p>
           <div className="heroActions">
             <Link className="heroPrimary" href="/dashboard">
