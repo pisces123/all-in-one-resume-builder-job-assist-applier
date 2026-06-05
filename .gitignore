@@ -8,6 +8,7 @@ node_modules/
 coverage/
 dist/
 out/
+work/
 *.tsbuildinfo
 npm-debug.log*
 yarn-debug.log*
