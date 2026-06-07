@@ -1,10 +1,20 @@
-# All in One Resume Builder and Job Assist Applier
+<h1 align="center">All-in-One Resume Builder + Job Assist Applier</h1>
 
-A free, open-source job-search workspace for building resumes, checking ATS readiness, saving jobs from Chrome, tailoring applications, generating cover letters, exporting PDF/DOCX files, and tracking progress.
+<p align="center">
+  <strong>A free, open-source job-search workspace for resumes, ATS checks, job tracking, cover letters, and Chrome job saving.</strong>
+</p>
+
+<p align="center">
+  <a href="https://all-in-one-resume-builder-job-assis.vercel.app">Live app</a>
+  |
+  <a href="docs/DEPLOYMENT.md">Deployment</a>
+  |
+  <a href="extension/">Chrome extension</a>
+  |
+  <a href="CONTRIBUTING.md">Contributing</a>
+</p>
 
 This first release ships as a live MVP shell. It works locally in demo mode right away and unlocks connected account storage plus AI drafting when Supabase and DeepSeek environment variables are configured.
-
-Live app: https://all-in-one-resume-builder-job-assis.vercel.app
 
 ## Features
 

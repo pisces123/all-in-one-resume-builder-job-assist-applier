@@ -1,8 +1,18 @@
 {
   "name": "all-in-one-resume-builder-job-assist-applier",
   "version": "0.1.0",
+  "description": "Open-source job-search workspace for resumes, ATS checks, job tracking, cover letters, and Chrome job saving.",
   "private": false,
   "type": "module",
+  "license": "MIT",
+  "homepage": "https://all-in-one-resume-builder-job-assis.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rupayon123/all-in-one-resume-builder-job-assist-applier.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rupayon123/all-in-one-resume-builder-job-assist-applier/issues"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
