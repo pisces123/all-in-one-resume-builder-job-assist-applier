@@ -11,6 +11,8 @@ export function InteractiveHero({ children }: { children: ReactNode }) {
     const shiftY = ((y - 50) / 50) * 18;
     const counterShiftX = shiftX * -0.45;
     const counterShiftY = shiftY * -0.45;
+    const deskShiftX = shiftX * 0.16;
+    const deskShiftY = shiftY * 0.14;
 
     event.currentTarget.style.setProperty("--hero-x", `${x.toFixed(2)}%`);
     event.currentTarget.style.setProperty("--hero-y", `${y.toFixed(2)}%`);
@@ -18,6 +20,8 @@ export function InteractiveHero({ children }: { children: ReactNode }) {
     event.currentTarget.style.setProperty("--hero-shift-y", `${shiftY.toFixed(2)}px`);
     event.currentTarget.style.setProperty("--hero-counter-shift-x", `${counterShiftX.toFixed(2)}px`);
     event.currentTarget.style.setProperty("--hero-counter-shift-y", `${counterShiftY.toFixed(2)}px`);
+    event.currentTarget.style.setProperty("--desk-shift-x", `${deskShiftX.toFixed(2)}px`);
+    event.currentTarget.style.setProperty("--desk-shift-y", `${deskShiftY.toFixed(2)}px`);
     event.currentTarget.style.setProperty("--hero-saturation", "1.19");
     event.currentTarget.style.setProperty("--hero-sheen-opacity", "0.84");
     event.currentTarget.style.setProperty("--hero-film-opacity", "0.54");
@@ -30,6 +34,8 @@ export function InteractiveHero({ children }: { children: ReactNode }) {
     event.currentTarget.style.setProperty("--hero-shift-y", "0px");
     event.currentTarget.style.setProperty("--hero-counter-shift-x", "0px");
     event.currentTarget.style.setProperty("--hero-counter-shift-y", "0px");
+    event.currentTarget.style.setProperty("--desk-shift-x", "0px");
+    event.currentTarget.style.setProperty("--desk-shift-y", "0px");
     event.currentTarget.style.setProperty("--hero-saturation", "1.05");
     event.currentTarget.style.setProperty("--hero-sheen-opacity", "0.66");
     event.currentTarget.style.setProperty("--hero-film-opacity", "0.42");

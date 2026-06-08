@@ -8,10 +8,10 @@
   "homepage": "https://all-in-one-resume-builder-job-assis.vercel.app",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rupayon123/all-in-one-resume-builder-job-assist-applier.git"
+    "url": "https://github.com/pisces123/all-in-one-resume-builder-job-assist-applier.git"
   },
   "bugs": {
-    "url": "https://github.com/rupayon123/all-in-one-resume-builder-job-assist-applier/issues"
+    "url": "https://github.com/pisces123/all-in-one-resume-builder-job-assist-applier/issues"
   },
   "scripts": {
     "dev": "next dev",

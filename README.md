@@ -14,7 +14,7 @@
   <a href="CONTRIBUTING.md">Contributing</a>
 </p>
 
-This first release ships as a live MVP shell. It works locally in demo mode right away and unlocks connected account storage plus AI drafting when Supabase and DeepSeek environment variables are configured.
+This first release ships as a live MVP shell. It works locally in demo mode right away, then adds connected account storage and AI drafting when Supabase and DeepSeek environment variables are configured.
 
 ## Features
 
@@ -28,9 +28,9 @@ This first release ships as a live MVP shell. It works locally in demo mode righ
 - Supabase schema with row-level security policies
 - Server-side DeepSeek-compatible AI adapter with demo fallback
 
-## Visual Assets
+## Visual Direction
 
-The landing-page workspace photo is from Pixabay: https://pixabay.com/photos/laptop-desk-setup-workspace-7093440/
+The landing page uses a custom "application desk" concept: paper, notes, saved jobs, and a cursor-reactive desk light instead of a generic software hero.
 
 ## Local Development
 

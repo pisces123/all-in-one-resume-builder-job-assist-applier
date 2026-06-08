@@ -4,62 +4,95 @@ import {
   CheckCircle2,
   Chrome,
   FileText,
-  Mail,
+  Search,
   ShieldCheck,
-  WandSparkles
 } from "lucide-react";
 import Link from "next/link";
 import { InteractiveHero } from "@/components/InteractiveHero";
 
-const flow = [
+const workflow = [
   {
-    icon: FileText,
-    title: "Build the base resume",
-    copy: "Start from a guided profile or import what you already have, then keep one clean source of truth."
+    label: "01",
+    title: "Keep one master resume",
+    copy: "Import the resume you already have or build it section by section. The clean version stays in one place."
   },
   {
-    icon: BriefcaseBusiness,
-    title: "Save every job",
-    copy: "Use the Chrome saver or add roles manually so each opportunity has a job description, status, and notes."
+    label: "02",
+    title: "Save the role before it disappears",
+    copy: "Right-click a posting with the Chrome saver, or add the job by hand. The link, company, description, and notes stay with the application."
   },
   {
-    icon: WandSparkles,
-    title: "Tailor before applying",
-    copy: "Generate a targeted draft, ATS readiness estimate, cover letter, and next-best action list."
+    label: "03",
+    title: "Prepare the application packet",
+    copy: "Compare the job against your resume, draft a better version, write the cover letter, and move the job through the tracker."
   }
 ];
 
 const stats = [
-  ["7", "pipeline stages"],
-  ["PDF", "one-click export"],
-  ["DOCX", "editable copies"],
-  ["MV3", "Chrome capture"]
+  ["7", "clear job stages"],
+  ["PDF", "ready-to-send export"],
+  ["DOCX", "editable resume copies"],
+  ["MV3", "right-click Chrome saver"]
+];
+
+const queue = [
+  ["Saved", "Product Designer", "Resume match: 74"],
+  ["Tailored", "Ops Coordinator", "Cover letter ready"],
+  ["Interviewing", "Customer Success", "Prep notes due"]
 ];
 
 export default function LandingPage() {
   return (
     <main className="landingShell">
       <InteractiveHero>
-        <div className="heroGradientLayer" aria-hidden="true" />
+        <div className="heroDeskLayer" aria-hidden="true">
+          <div className="deskLamp" />
+          <div className="deskObject deskResumeSheet">
+            <span className="deskTag">Master resume</span>
+            <strong>Jordan Lee</strong>
+            <span className="deskLine wide" />
+            <span className="deskLine" />
+            <span className="deskLine short" />
+            <span className="deskScore">ATS readiness 82</span>
+          </div>
+          <div className="deskObject deskJobBrief">
+            <span className="deskTag">Saved job</span>
+            <strong>Marketing Analyst</strong>
+            <span className="deskLine wide" />
+            <span className="deskLine" />
+            <span className="deskLine tiny" />
+            <span className="deskStatus">Tailor next</span>
+          </div>
+          <div className="deskObject deskNote">
+            <span>Recruiter note</span>
+            <strong>Find hiring manager before applying.</strong>
+          </div>
+          <div className="deskObject deskLetter">
+            <span className="deskTag">Cover letter</span>
+            <span className="deskLine wide" />
+            <span className="deskLine wide" />
+            <span className="deskLine short" />
+          </div>
+        </div>
         <div className="heroShade" />
         <div className="heroCopy">
           <p className="heroKicker">
             <ShieldCheck size={18} />
-            All in One Resume Builder
+            Built for real job searches
           </p>
-          <h1>Apply with a sharper resume.</h1>
+          <h1>A proper desk for every job application.</h1>
           <p>
-            Build a clean base resume, save every job, tailor your application,
-            and keep the whole search moving from one focused workspace.
+            Save the job, shape the resume, write the letter, and track what
+            happened next without rebuilding everything from scratch.
           </p>
           <div className="heroActions">
             <Link className="heroPrimary" href="/dashboard">
-              <WandSparkles size={18} />
-              Launch Workspace
+              <FileText size={18} />
+              Open Workspace
             </Link>
             <Link className="heroSecondary" href="/extension">
               <Chrome size={18} />
-              Chrome Saver
+              Add Chrome Saver
             </Link>
           </div>
         </div>
@@ -69,50 +102,64 @@ export default function LandingPage() {
         {stats.map(([value, label]) => (
           <div key={label}>
             <span>{value}</span>
-            <p>{label}</p>
-          </div>
-        ))}
+          <p>{label}</p>
+        </div>
+      ))}
       </section>
 
-      <section className="featureBand">
-        <div className="sectionLead">
-          <p className="eyebrow">Application flow</p>
-          <h2>One clean loop from job discovery to ready-to-send docs.</h2>
+      <section className="workflowBand">
+        <div className="workflowIntro">
+          <p className="eyebrow">The application desk</p>
+          <h2>Everything you need before you hit apply.</h2>
+          <p>
+            Job hunting gets messy because every role needs a slightly different
+            packet. This keeps the pieces together so you can move with less panic.
+          </p>
         </div>
-        <div className="flowGrid">
-          {flow.map(({ icon: Icon, title, copy }) => (
-            <article key={title} className="featureTile">
-              <Icon size={24} />
+        <ol className="workflowList">
+          {workflow.map(({ label, title, copy }) => (
+            <li key={title}>
+              <span>{label}</span>
               <h3>{title}</h3>
               <p>{copy}</p>
-            </article>
+            </li>
           ))}
-        </div>
+        </ol>
       </section>
 
-      <section className="splitBand">
-        <div className="showcasePanel">
-          <img src="/hero-stock.jpg" alt="" width={1280} height={853} />
+      <section className="casefileBand">
+        <div className="applicationQueue" aria-label="Example job tracker queue">
+          <div className="queueHeader">
+            <span>Job desk</span>
+            <strong>3 active applications</strong>
+          </div>
+          {queue.map(([stage, role, note]) => (
+            <div className="queueRow" key={role}>
+              <span>{stage}</span>
+              <strong>{role}</strong>
+              <p>{note}</p>
+            </div>
+          ))}
         </div>
         <div className="launchList">
-          <p className="eyebrow">Live MVP</p>
-          <h2>Already online, already open source.</h2>
+          <p className="eyebrow">What it helps with</p>
+          <h2>A calmer path from saved link to ready application.</h2>
           <ul>
             <li>
               <CheckCircle2 size={18} />
-              <span>Demo mode works without Supabase or DeepSeek keys.</span>
+              <span>Keep each job description, URL, status, and note together.</span>
             </li>
             <li>
               <CheckCircle2 size={18} />
-              <span>Server routes are ready for connected storage and AI.</span>
+              <span>See what your resume is missing before you send it.</span>
             </li>
             <li>
               <CheckCircle2 size={18} />
-              <span>Exports, scoring, and tailoring fallbacks run today.</span>
+              <span>Bring the right resume, cover letter, and interview notes back when you need them.</span>
             </li>
           </ul>
           <Link className="textArrow" href="/roadmap">
-            Roadmap
+            See the roadmap
             <ArrowRight size={18} />
           </Link>
         </div>
@@ -120,12 +167,16 @@ export default function LandingPage() {
 
       <section className="ctaBand">
         <div>
-          <p className="eyebrow">Ready workspace</p>
-          <h2>Open the dashboard and start shaping the first resume/job flow.</h2>
+          <p className="eyebrow">Start with one role</p>
+          <h2>Open the workspace, add a job, and make the next application less scattered.</h2>
         </div>
         <Link className="heroPrimary" href="/dashboard">
-          <Mail size={18} />
-          Go to Dashboard
+          <BriefcaseBusiness size={18} />
+          Open Workspace
+        </Link>
+        <Link className="heroSecondary ctaSecondary" href="/jobs">
+          <Search size={18} />
+          View Job Tracker
         </Link>
       </section>
     </main>
